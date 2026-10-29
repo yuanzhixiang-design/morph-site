@@ -1,0 +1,444 @@
+# ============================================================
+# CIRCAFORM 官网后台配置（Decap CMS）
+# 部署前必须改两处：
+#   1. repo：你的 GitHub 用户名/仓库名
+#   2. base_url：你的 GitHub 登录代理地址（见 README 第 5 步）
+# ============================================================
+
+backend:
+  name: git-github
+  repo: YOUR_GITHUB_USERNAME/morph-site
+  branch: main
+  base_url: https://YOUR-OAUTH-PROXY.workers.dev
+
+# 后台界面语言
+locale: zh_Hans
+
+# 图片存哪、页面里怎么引用
+media_folder: "src/assets/images"
+public_folder: "assets/images"
+
+collections:
+  # ==========================================================
+  # 一、首页
+  # ==========================================================
+  - name: home
+    label: 首页
+    files:
+      - name: home
+        label: 首页
+        file: content/home.json
+        fields:
+          - name: seo
+            label: 搜索优化（浏览器标签与分享卡片）
+            widget: object
+            fields:
+              - { name: title, label: 网页标题, widget: string }
+              - { name: description, label: 网页描述, widget: text }
+
+          - name: brand
+            label: 品牌
+            widget: object
+            fields:
+              - { name: nameEn, label: 英文名, widget: string }
+              - { name: nameCn, label: 中文简称, widget: string }
+              - { name: fullNameCn, label: 中文全称, widget: string }
+
+          - name: nav
+            label: 导航菜单
+            widget: object
+            fields:
+              - name: items
+                label: 菜单项
+                widget: list
+                fields:
+                  - { name: label, label: 文字, widget: string }
+                  - { name: href, label: 链接, widget: string, hint: "二级页面固定写 /works/ /method/ /insights/ /about/ /contact/" }
+
+          - name: hero
+            label: 首屏
+            widget: object
+            fields:
+              - { name: metaLeft, label: 顶部左侧小字, widget: string }
+              - { name: metaRight, label: 顶部右侧小字, widget: string }
+              - { name: headline, label: 主标题, widget: text, hint: "按回车换行，建议 2 行以内" }
+              - { name: desc, label: 说明文字, widget: text }
+              - { name: image, label: 首屏大图, widget: image }
+              - { name: scrollCue, label: 滚动提示文字, widget: string }
+
+          - name: featured
+            label: 精选作品（三栏卡片）
+            widget: object
+            fields:
+              - { name: eyebrow, label: 小标签, widget: string }
+              - { name: title, label: 板块标题, widget: string }
+              - { name: linkText, label: 链接文字, widget: string }
+              - { name: linkHref, label: 链接地址, widget: string }
+              - name: items
+                label: 作品卡片
+                widget: list
+                max: 3
+                fields:
+                  - { name: image, label: 图片, widget: image }
+                  - { name: tag, label: 行业 · 年份, widget: string }
+                  - { name: title, label: 案例标题, widget: string }
+                  - { name: href, label: 案例链接, widget: string, hint: "如 /works/charging-robot/" }
+
+          - name: selected
+            label: 主案例（整幅大图）
+            widget: object
+            fields:
+              - { name: eyebrow, label: 小标签, widget: string }
+              - { name: title, label: 案例名, widget: string }
+              - { name: sub, label: 一句话说明, widget: string }
+              - { name: image, label: 大图, widget: image }
+              - { name: meta, label: 底部信息栏, widget: string, hint: "行业 · 奖项 · 量产数据" }
+              - { name: linkText, label: 链接文字, widget: string }
+              - { name: linkHref, label: 链接地址, widget: string }
+
+          - name: how
+            label: 工作方法（四步）
+            widget: object
+            fields:
+              - { name: eyebrow, label: 小标签, widget: string }
+              - { name: title, label: 板块标题, widget: string }
+              - { name: desc, label: 说明文字, widget: string }
+              - name: steps
+                label: 步骤
+                widget: list
+                max: 4
+                fields:
+                  - { name: num, label: 序号, widget: string }
+                  - { name: title, label: 名称, widget: string }
+                  - { name: desc, label: 描述, widget: string }
+
+          - name: principles
+            label: 设计主张
+            widget: object
+            fields:
+              - { name: eyebrow, label: 小标签, widget: string }
+              - { name: statement, label: 大字主张, widget: text, hint: "按回车换行" }
+              - name: items
+                label: 原则条目
+                widget: list
+                fields:
+                  - { name: text, label: 内容, widget: string }
+
+          - name: insights
+            label: 洞察（首页摘要）
+            widget: object
+            fields:
+              - { name: eyebrow, label: 小标签, widget: string }
+              - { name: title, label: 板块标题, widget: string }
+              - { name: linkText, label: 链接文字, widget: string }
+              - { name: linkHref, label: 链接地址, widget: string }
+              - name: items
+                label: 文章列表
+                widget: list
+                fields:
+                  - { name: image, label: 缩略图, widget: image }
+                  - { name: tag, label: 分类, widget: string }
+                  - { name: title, label: 标题, widget: string }
+                  - { name: date, label: 日期, widget: string }
+                  - { name: href, label: 文章链接, widget: string, hint: "如 /insights/smart-product-design/" }
+
+          - name: cta
+            label: 联系转化区（全站共用）
+            widget: object
+            fields:
+              - { name: eyebrow, label: 小标签, widget: string }
+              - { name: title, label: 标题, widget: text }
+              - { name: buttonText, label: 按钮文字, widget: string }
+              - { name: buttonHref, label: 按钮链接, widget: string, hint: "如 /contact/ 或 mailto:hello@xxx.com" }
+              - { name: email, label: 邮箱, widget: string }
+              - { name: phone, label: 电话, widget: string }
+              - { name: address, label: 地址, widget: string }
+
+          - name: footer
+            label: 页脚
+            widget: object
+            fields:
+              - { name: wordmark, label: 品牌大字, widget: string }
+              - { name: tagline, label: 一句话, widget: string }
+              - name: columns
+                label: 链接分组
+                widget: list
+                fields:
+                  - { name: heading, label: 分组名, widget: string }
+                  - name: links
+                    label: 链接
+                    widget: list
+                    fields:
+                      - { name: text, label: 文字, widget: string }
+                      - { name: href, label: 链接, widget: string, hint: "如 /works/ 或 /about/" }
+              - { name: copyright, label: 版权信息, widget: string }
+              - { name: icp, label: 备案号, widget: string }
+              - name: legal
+                label: 底部链接
+                widget: list
+                fields:
+                  - { name: text, label: 文字, widget: string }
+                  - { name: href, label: 链接, widget: string }
+
+          - name: worksPage
+            label: 作品页（列表页头部）
+            widget: object
+            fields:
+              - name: seo
+                label: 搜索优化
+                widget: object
+                fields:
+                  - { name: title, label: 网页标题, widget: string }
+                  - { name: description, label: 网页描述, widget: text }
+              - name: hero
+                label: 页面头部
+                widget: object
+                fields:
+                  - { name: eyebrow, label: 小标签, widget: string }
+                  - { name: title, label: 大标题, widget: string }
+                  - { name: lead, label: 说明文字, widget: text }
+
+          - name: insightsPage
+            label: 洞察页（列表页头部）
+            widget: object
+            fields:
+              - name: seo
+                label: 搜索优化
+                widget: object
+                fields:
+                  - { name: title, label: 网页标题, widget: string }
+                  - { name: description, label: 网页描述, widget: text }
+              - name: hero
+                label: 页面头部
+                widget: object
+                fields:
+                  - { name: eyebrow, label: 小标签, widget: string }
+                  - { name: title, label: 大标题, widget: string }
+                  - { name: lead, label: 说明文字, widget: text }
+
+  # ==========================================================
+  # 二、作品案例（可随时新增）
+  # ==========================================================
+  - name: works
+    label: 作品案例
+    label_singular: 案例
+    folder: content/works
+    create: true
+    delete: true
+    slug: "{{fields.code}}"
+    summary: "{{title}}　·　{{industry}}"
+    sortable_fields: [order, title]
+    fields:
+      - { name: code, label: 网址短名, widget: string, hint: "英文小写，用连字符，例如 charging-robot。这决定案例网址 /works/短名/，建好后不要改" }
+      - { name: title, label: 案例名称, widget: string }
+      - { name: industry, label: 行业分类, widget: string, hint: "智能装备 / 服务机器人 / 家居家电 / 医疗健康 —— 作品页的筛选按钮据此生成" }
+      - { name: year, label: 年份, widget: string }
+      - { name: tagline, label: 一句话说明, widget: string, hint: "出现在列表卡片和详情页标题下面" }
+      - { name: cover, label: 封面图, widget: image }
+      - { name: order, label: 排序, widget: number, default: 99, hint: "数字小的排前面" }
+      - name: meta
+        label: 项目信息栏（4 项）
+        widget: list
+        max: 4
+        fields:
+          - { name: label, label: 名称, widget: string, hint: "客户 / 服务 / 周期 / 成果" }
+          - { name: value, label: 内容, widget: string }
+      - { name: body, label: 正文, widget: markdown, hint: "用 ## 做小标题；**加粗**；> 做引用" }
+      - name: gallery
+        label: 详情页配图（可留空）
+        widget: list
+        required: false
+        fields:
+          - { name: image, label: 图片, widget: image }
+          - { name: caption, label: 图片说明, widget: string, required: false }
+
+  # ==========================================================
+  # 三、洞察文章（可随时新增）
+  # ==========================================================
+  - name: insights
+    label: 洞察文章
+    label_singular: 文章
+    folder: content/insights
+    create: true
+    delete: true
+    slug: "{{fields.code}}"
+    summary: "{{title}}　·　{{date}}"
+    sortable_fields: [order, date, title]
+    fields:
+      - { name: code, label: 网址短名, widget: string, hint: "英文小写，用连字符，例如 cmf-cost-structure" }
+      - { name: title, label: 标题, widget: string }
+      - { name: category, label: 分类, widget: string, hint: "洞察 / 播客 / 新闻" }
+      - { name: date, label: 日期, widget: string, hint: "写成 2026.10.18 这种格式" }
+      - { name: excerpt, label: 摘要, widget: text, hint: "列表页和分享卡片用，一两句话" }
+      - { name: cover, label: 封面图, widget: image, required: false }
+      - { name: order, label: 排序, widget: number, default: 99 }
+      - { name: body, label: 正文, widget: markdown }
+      - name: seo
+        label: 搜索优化
+        widget: object
+        required: false
+        fields:
+          - { name: title, label: 网页标题, widget: string, required: false }
+          - { name: description, label: 网页描述, widget: text, required: false }
+
+  # ==========================================================
+  # 四、独立页面：方法 / 关于 / 联系
+  # ==========================================================
+  - name: pages
+    label: 独立页面
+    files:
+      - name: method
+        label: 方法页
+        file: content/pages/method.json
+        fields:
+          - name: seo
+            label: 搜索优化
+            widget: object
+            fields:
+              - { name: title, label: 网页标题, widget: string }
+              - { name: description, label: 网页描述, widget: text }
+          - name: hero
+            label: 页面头部
+            widget: object
+            fields:
+              - { name: eyebrow, label: 小标签, widget: string }
+              - { name: title, label: 大标题, widget: string }
+              - { name: lead, label: 说明文字, widget: text }
+          - name: steps
+            label: 四步流程
+            widget: list
+            max: 4
+            fields:
+              - { name: num, label: 序号, widget: string }
+              - { name: title, label: 名称, widget: string }
+              - { name: desc, label: 描述, widget: text }
+              - { name: deliverables, label: 交付物, widget: list, field: { name: text, label: 交付物, widget: string } }
+          - name: services
+            label: 服务模块
+            widget: object
+            fields:
+              - { name: eyebrow, label: 小标签, widget: string }
+              - { name: title, label: 标题, widget: string }
+              - { name: desc, label: 说明, widget: string }
+              - name: items
+                label: 模块列表
+                widget: list
+                fields:
+                  - { name: name, label: 模块名, widget: string }
+                  - { name: desc, label: 一句说明, widget: string }
+
+      - name: about
+        label: 关于页
+        file: content/pages/about.json
+        fields:
+          - name: seo
+            label: 搜索优化
+            widget: object
+            fields:
+              - { name: title, label: 网页标题, widget: string }
+              - { name: description, label: 网页描述, widget: text }
+          - name: hero
+            label: 页面头部
+            widget: object
+            fields:
+              - { name: eyebrow, label: 小标签, widget: string }
+              - { name: title, label: 大标题, widget: string }
+              - { name: lead, label: 说明文字, widget: text }
+          - name: stats
+            label: 数字条
+            widget: list
+            max: 4
+            fields:
+              - { name: num, label: 数字, widget: string }
+              - { name: label, label: 说明, widget: string }
+          - name: intro
+            label: 自我介绍
+            widget: object
+            fields:
+              - { name: eyebrow, label: 小标签, widget: string }
+              - { name: title, label: 标题, widget: string }
+              - { name: body, label: 正文, widget: markdown }
+          - name: team
+            label: 团队
+            widget: object
+            required: false
+            fields:
+              - { name: eyebrow, label: 小标签, widget: string }
+              - { name: title, label: 标题, widget: string }
+              - { name: desc, label: 说明, widget: string, required: false }
+              - name: members
+                label: 成员
+                widget: list
+                fields:
+                  - { name: name, label: 姓名, widget: string }
+                  - { name: role, label: 职位, widget: string }
+                  - { name: bio, label: 介绍, widget: text }
+          - name: awards
+            label: 奖项
+            widget: object
+            required: false
+            fields:
+              - { name: eyebrow, label: 小标签, widget: string }
+              - { name: title, label: 标题, widget: string }
+              - name: items
+                label: 奖项列表
+                widget: list
+                fields:
+                  - { name: year, label: 年份, widget: string }
+                  - { name: name, label: 奖项名, widget: string }
+                  - { name: project, label: 对应项目, widget: string }
+          - name: clients
+            label: 合作品牌
+            widget: object
+            required: false
+            fields:
+              - { name: eyebrow, label: 小标签, widget: string }
+              - { name: title, label: 标题, widget: string }
+              - { name: items, label: 品牌名, widget: list, field: { name: text, label: 品牌, widget: string } }
+
+      - name: contact
+        label: 联系页
+        file: content/pages/contact.json
+        fields:
+          - name: seo
+            label: 搜索优化
+            widget: object
+            fields:
+              - { name: title, label: 网页标题, widget: string }
+              - { name: description, label: 网页描述, widget: text }
+          - name: hero
+            label: 页面头部
+            widget: object
+            fields:
+              - { name: eyebrow, label: 小标签, widget: string }
+              - { name: title, label: 大标题, widget: string }
+              - { name: lead, label: 说明文字, widget: text }
+          - name: channels
+            label: 联系方式
+            widget: list
+            fields:
+              - { name: label, label: 类型, widget: string, hint: "邮箱 / 电话 / 微信" }
+              - { name: value, label: 内容, widget: string }
+              - { name: href, label: 链接, widget: string, required: false, hint: "如 mailto:xx@xx.com 或 tel:+8675588234400，不填就是纯文字" }
+              - { name: note, label: 备注, widget: string, required: false }
+          - name: wechatQr
+            label: 企业微信二维码
+            widget: object
+            fields:
+              - { name: image, label: 二维码图片, widget: image, default: assets/images/wecom-qr.png, hint: "从企业微信后台保存二维码后上传替换" }
+              - { name: label, label: 标签文字, widget: string, default: 企业微信 }
+              - { name: note, label: 备注文字, widget: string, required: false }
+          - name: form
+            label: 表单
+            widget: object
+            fields:
+              - { name: eyebrow, label: 小标签, widget: string }
+              - { name: title, label: 标题, widget: string }
+              - { name: action, label: 表单提交地址, widget: string, hint: "默认用 formsubmit.co，换成自己的表单服务也可以" }
+              - { name: note, label: 表单下方说明, widget: text }
+          - name: studio
+            label: 工作室信息
+            widget: object
+            fields:
+              - { name: address, label: 地址, widget: string }
+              - { name: hours, label: 开放时间, widget: string }

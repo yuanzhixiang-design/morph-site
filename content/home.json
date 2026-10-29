@@ -1,0 +1,181 @@
+{
+  "seo": {
+    "title": "圆之象工业设计 CIRCAFORM — 从产品定义到量产落地",
+    "description": "专注智能硬件与高端装备的工业设计公司。十二年，两百多个项目，从品类定义一路做到量产交付。"
+  },
+  "brand": {
+    "nameEn": "CIRCAFORM",
+    "nameCn": "圆之象",
+    "fullNameCn": "圆之象工业设计"
+  },
+  "nav": {
+    "items": [
+      { "label": "作品", "href": "/works/" },
+      { "label": "方法", "href": "/method/" },
+      { "label": "洞察", "href": "/insights/" },
+      { "label": "关于", "href": "/about/" },
+      { "label": "联系", "href": "/contact/" }
+    ]
+  },
+  "hero": {
+    "metaLeft": "CIRCAFORM DESIGN — INDUSTRIAL DESIGN STUDIO",
+    "metaRight": "SHENZHEN / 2014—2026",
+    "headline": "让产品，\n被记住。",
+    "desc": "我们和科技与消费品牌一起，把技术定义成有人愿意买的产品。策略、设计、工程、量产，一个团队走完。",
+    "image": "assets/images/hero.jpg",
+    "scrollCue": "SCROLL"
+  },
+  "featured": {
+    "eyebrow": "FEATURED / 01",
+    "title": "最近在做什么",
+    "linkText": "全部作品",
+    "linkHref": "/works/",
+    "items": [
+      {
+        "image": "assets/images/work-robot.jpg",
+        "tag": "服务机器人 · 2026",
+        "title": "灵犀 X1 配送机器人",
+        "href": "/works/service-robot/"
+      },
+      {
+        "image": "assets/images/work-storage.jpg",
+        "tag": "家用储能 · 2025",
+        "title": "曜石家用储能一体机",
+        "href": "/works/home-storage/"
+      },
+      {
+        "image": "assets/images/work-ultrasound.jpg",
+        "tag": "医疗设备 · 2025",
+        "title": "澄心手持超声",
+        "href": "/works/handheld-ultrasound/"
+      }
+    ]
+  },
+  "selected": {
+    "eyebrow": "SELECTED WORK / 02",
+    "title": "原力充电机器人",
+    "sub": "从一张草图，到 12 万台出货",
+    "image": "assets/images/work-charging.jpg",
+    "meta": "智能装备 · iF DESIGN AWARD 2025 · 量产 12 万台",
+    "linkText": "查看案例",
+    "linkHref": "/works/charging-robot/"
+  },
+  "how": {
+    "eyebrow": "HOW WE WORK / 03",
+    "title": "四步，走到产线",
+    "desc": "每一步都有交付物，而不是一张流程图。",
+    "steps": [
+      { "num": "01", "title": "定义", "desc": "用研究和数据，找到产品该占的位置。" },
+      { "num": "02", "title": "造型", "desc": "形体、CMF、交互，让人第一眼想拿起来。" },
+      { "num": "03", "title": "工程", "desc": "结构、仿真、可制造性，图纸阶段解决。" },
+      { "num": "04", "title": "落地", "desc": "手板、模具、产线，跟到第一批货。" }
+    ]
+  },
+  "principles": {
+    "eyebrow": "PRINCIPLES / 04",
+    "statement": "好设计\n不是让人惊讶，\n是让人顺手。",
+    "items": [
+      { "text": "先想清楚卖给谁，再想长什么样。" },
+      { "text": "好看是结果，不是目标。" },
+      { "text": "每一个圆角都要有成本意识。" },
+      { "text": "设计要对得起产线上的人。" }
+    ]
+  },
+  "insights": {
+    "eyebrow": "INSIGHTS / 05",
+    "title": "最近在想什么",
+    "linkText": "全部洞察",
+    "linkHref": "/insights/",
+    "items": [
+      {
+        "image": "assets/images/work-robot.jpg",
+        "tag": "洞察",
+        "title": "当所有产品都变智能，工业设计还剩什么",
+        "date": "2026.10.18",
+        "href": "/insights/smart-product-design/"
+      },
+      {
+        "image": "assets/images/work-storage.jpg",
+        "tag": "洞察",
+        "title": "CMF 不是配色游戏：材质决定成本结构",
+        "date": "2026.08.02",
+        "href": "/insights/cmf-cost-structure/"
+      },
+      {
+        "image": "assets/images/hero.jpg",
+        "tag": "播客",
+        "title": "和结构工程师聊：量产的 100 个坑",
+        "date": "2026.06.21",
+        "href": "/insights/mass-production-podcast/"
+      }
+    ]
+  },
+  "cta": {
+    "eyebrow": "START A PROJECT / 06",
+    "title": "有一个产品要做？\n先聊聊它值不值得做。",
+    "buttonText": "预约一次诊断",
+    "buttonHref": "/contact/",
+    "email": "meiwanjuan@yuanzhixiang.cn",
+    "phone": "+86 173 8874 5106",
+    "address": "深圳龙岗 · 星河WORLD F座"
+  },
+  "footer": {
+    "wordmark": "CIRCAFORM",
+    "tagline": "从产品定义，到量产落地。",
+    "columns": [
+      {
+        "heading": "作品",
+        "links": [
+          { "text": "全部作品", "href": "/works/" },
+          { "text": "原力充电机器人", "href": "/works/charging-robot/" },
+          { "text": "灵犀 X1", "href": "/works/service-robot/" },
+          { "text": "曜石储能", "href": "/works/home-storage/" }
+        ]
+      },
+      {
+        "heading": "能力",
+        "links": [
+          { "text": "工作方法", "href": "/method/" },
+          { "text": "工业设计", "href": "/method/" },
+          { "text": "结构工程", "href": "/method/" },
+          { "text": "量产导入", "href": "/method/" }
+        ]
+      },
+      {
+        "heading": "关于",
+        "links": [
+          { "text": "工作室", "href": "/about/" },
+          { "text": "团队", "href": "/about/" },
+          { "text": "洞察", "href": "/insights/" },
+          { "text": "联系", "href": "/contact/" }
+        ]
+      }
+    ],
+    "copyright": "Copyright 2026 圆之象工业设计 CIRCAFORM DESIGN",
+    "icp": "粤ICP备 2026 0123456 号",
+    "legal": [{ "text": "隐私政策", "href": "/contact/" }, { "text": "网站地图", "href": "/works/" }]
+  },
+  "worksPage": {
+    "seo": {
+      "title": "作品 — 圆之象工业设计 CIRCAFORM",
+      "description": "智能装备、服务机器人、家居家电、医疗健康四个方向的量产案例。每一个都真的上过货架。"
+    },
+    "hero": {
+      "eyebrow": "SELECTED WORK / 2014—2026",
+      "title": "作品",
+      "lead": "每一个都真的上过货架。下面是能公开的 4 个，其余受保密协议限制，来办公室可以看。",
+      "image": "assets/images/work-charging.jpg"
+    }
+  },
+  "insightsPage": {
+    "seo": {
+      "title": "洞察 — 圆之象工业设计 CIRCAFORM",
+      "description": "关于工业设计、CMF、结构工程与量产落地的思考与对谈。"
+    },
+    "hero": {
+      "eyebrow": "INSIGHTS",
+      "title": "洞察",
+      "lead": "我们写设计，也写设计之外的事：成本、供应链、产线上的人。"
+    }
+  }
+}

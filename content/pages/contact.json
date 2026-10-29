@@ -1,0 +1,31 @@
+{
+  "seo": {
+    "title": "联系 — 圆之象工业设计 CIRCAFORM",
+    "description": "发一封邮件，说说你想做什么。深圳龙岗，48 小时内回复。"
+  },
+  "hero": {
+    "eyebrow": "CONTACT",
+    "title": "联系",
+    "lead": "发一封邮件，说说你想做什么。有图纸、有样机、或者只有一个想法，都可以。48 小时内一定有人回你。"
+  },
+  "channels": [
+    { "label": "邮箱", "value": "meiwanjuan@yuanzhixiang.cn", "href": "mailto:meiwanjuan@yuanzhixiang.cn", "note": "项目咨询、合作、媒体，都发这里" },
+    { "label": "电话", "value": "+86 173 8874 5106", "href": "tel:+8617388745106", "note": "工作日 10:00—19:00" },
+    { "label": "微信", "value": "扫码添加企业微信", "note": "也可以直接搜索手机号 17388745106" }
+  ],
+  "wechatQr": {
+    "image": "assets/images/wecom-qr.png",
+    "label": "企业微信",
+    "note": "扫码添加，备注来意"
+  },
+  "form": {
+    "eyebrow": "START A PROJECT / 02",
+    "title": "告诉我们你的项目",
+    "action": "https://formsubmit.co/meiwanjuan@yuanzhixiang.cn",
+    "note": "表单会直接发到我们的邮箱。首次使用需要在邮箱里点一次确认链接；也可以用你自己的表单服务替换（见使用手册）。"
+  },
+  "studio": {
+    "address": "深圳市龙岗区 星河WORLD F座 2 楼",
+    "hours": "周一至周五 10:00—19:00，来访请提前预约"
+  }
+}

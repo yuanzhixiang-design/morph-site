@@ -1,0 +1,11 @@
+{
+  "name": "morph-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CIRCAFORM 圆之象工业设计 — 官网静态站（含可视化后台）",
+  "scripts": {
+    "build": "node generate.js",
+    "dev": "node generate.js && node serve.js",
+    "serve": "node serve.js"
+  }
+}
