@@ -223,6 +223,8 @@ collections:
     label: 作品案例
     label_singular: 案例
     folder: content/works
+    format: json
+    extension: json
     create: true
     delete: true
     slug: "{{fields.code}}"
@@ -259,6 +261,8 @@ collections:
     label: 洞察文章
     label_singular: 文章
     folder: content/insights
+    format: json
+    extension: json
     create: true
     delete: true
     slug: "{{fields.code}}"
