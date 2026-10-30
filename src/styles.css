@@ -387,6 +387,25 @@ a { color: inherit; text-decoration: none; }
   transition: opacity .25s ease;
 }
 .btn-solid:hover { opacity: .82; }
+.cta-qr {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.cta-qr img {
+  width: 124px;
+  height: 124px;
+  padding: 6px;
+  background: #FFFFFF;
+  border: 1px solid rgba(10, 10, 10, 0.1);
+}
+.cta-qr span {
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  color: var(--light-ink-2);
+}
 .cta-info { display: flex; flex-direction: column; gap: 12px; text-align: right; }
 .cta-info a, .cta-info p {
   margin: 0;
@@ -530,6 +549,8 @@ a { color: inherit; text-decoration: none; }
   .cta-title .cta-line:nth-child(3) { padding-left: 1em; }
   .cta-bottom { flex-direction: column; align-items: flex-start; gap: 32px; }
   .cta-info { text-align: left; }
+  .cta-qr { align-items: flex-start; }
+  .map-card { left: 16px; right: 16px; bottom: 16px; }
 
   .site-footer { padding-top: 80px; }
   .footer-top { flex-direction: column; gap: 48px; }
@@ -952,13 +973,39 @@ a.contact-value:hover { opacity: .75; }
 .form-note { margin: 0; font-size: 11px; line-height: 1.9; color: var(--ink-4); }
 
 .map-band {
+  position: relative;
   height: 460px;
   margin-top: 140px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--bg-soft);
   border-top: 1px solid var(--line);
+  overflow: hidden;
+}
+.map-frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(1) invert(0.9) contrast(0.85) brightness(0.95);
+}
+.map-card {
+  position: absolute;
+  left: var(--pad);
+  bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 24px 28px;
+  background: rgba(10, 10, 10, 0.88);
+  border: 1px solid var(--line);
+}
+.map-card .map-text { color: var(--ink-2); }
+.map-link {
+  font-family: var(--font-en);
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 .map-inner {
   display: flex;

@@ -148,6 +148,10 @@ const renderCta = (site, depth) => {
     <div class="cta-bottom reveal">
       <a class="btn-solid" href="${url(c.buttonHref, depth)}">${esc(c.buttonText)}</a>
       <div class="cta-info">
+        <div class="cta-qr">
+          <img src="${url("assets/images/wecom-qr.png", depth)}" alt="企业微信二维码，扫码添加" width="124" height="124">
+          <span>合作洽谈，可直接扫码添加企业微信</span>
+        </div>
         <a href="mailto:${esc(c.email)}">${esc(c.email)}</a>
         <a href="tel:${esc(String(c.phone).replace(/\s/g, ""))}">${esc(c.phone)}</a>
         <p class="addr">${esc(c.address)}</p>

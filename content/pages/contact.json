@@ -9,9 +9,23 @@
     "lead": "发一封邮件，说说你想做什么。有图纸、有样机、或者只有一个想法，都可以。48 小时内一定有人回你。"
   },
   "channels": [
-    { "label": "邮箱", "value": "meiwanjuan@yuanzhixiang.cn", "href": "mailto:meiwanjuan@yuanzhixiang.cn", "note": "项目咨询、合作、媒体，都发这里" },
-    { "label": "电话", "value": "+86 173 8874 5106", "href": "tel:+8617388745106", "note": "工作日 10:00—19:00" },
-    { "label": "微信", "value": "扫码添加企业微信", "note": "也可以直接搜索手机号 17388745106" }
+    {
+      "label": "邮箱",
+      "value": "meiwanjuan@yuanzhixiang.cn",
+      "href": "mailto:meiwanjuan@yuanzhixiang.cn",
+      "note": "项目咨询、合作、媒体，都发这里"
+    },
+    {
+      "label": "电话",
+      "value": "+86 173 8874 5106",
+      "href": "tel:+8617388745106",
+      "note": "工作日 10:00—19:00"
+    },
+    {
+      "label": "微信",
+      "value": "扫码添加企业微信",
+      "note": "也可以直接搜索手机号 17388745106"
+    }
   ],
   "wechatQr": {
     "image": "assets/images/wecom-qr.png",
@@ -27,5 +41,10 @@
   "studio": {
     "address": "深圳市龙岗区 星河WORLD F座 2 楼",
     "hours": "周一至周五 10:00—19:00，来访请提前预约"
+  },
+  "map": {
+    "embed": "https://ditu.amap.com/regeo?lng=114.0638&lat=22.6060&name=%E6%98%9F%E6%B2%B3WORLD-F%E5%BA%A7&src=yzxform&callnative=0&innersrc=uriapi",
+    "link": "https://uri.amap.com/marker?position=114.0638,22.6060&name=%E6%98%9F%E6%B2%B3WORLD-F%E5%BA%A7&src=yzxform&callnative=0",
+    "linkText": "在高德地图中打开导航"
   }
 }

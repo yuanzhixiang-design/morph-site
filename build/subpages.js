@@ -413,11 +413,24 @@ const contactPage = (site, page, depth = 1) => {
     </div>
   </section>
   <section class="map-band reveal">
-    <div class="map-inner">
+    ${
+      page.map && page.map.embed
+        ? `<iframe class="map-frame" src="${esc(page.map.embed)}" loading="lazy" title="工作室位置地图" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>`
+        : `<div class="map-inner">
       <span class="eyebrow">STUDIO</span>
       <p class="map-text">${esc(page.studio ? page.studio.address : site.cta.address)}</p>
       <span class="map-hint">地图占位 · 可替换为高德 / 百度地图嵌入代码</span>
-    </div>
+    </div>`
+    }
+    ${
+      page.map && page.map.embed
+        ? `<div class="map-card">
+      <span class="eyebrow">STUDIO</span>
+      <p class="map-text">${esc(page.studio ? page.studio.address : site.cta.address)}</p>
+      ${page.map.link ? `<a class="map-link" href="${esc(page.map.link)}" target="_blank" rel="noopener">${esc(page.map.linkText || "在高德地图中打开")} →</a>` : ""}
+    </div>`
+        : ""
+    }
   </section>`;
   return layout({ site, depth, seo: page.seo, active: "/contact/", body });
 };
