@@ -366,8 +366,10 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.3;
   font-weight: 700;
   letter-spacing: -0.02em;
-  white-space: pre-line;
 }
+.cta-title .cta-line { display: block; }
+.cta-title .cta-line:nth-child(2) { padding-left: 1.1em; }
+.cta-title .cta-line:nth-child(3) { padding-left: 2.2em; }
 .cta-bottom {
   display: flex;
   justify-content: space-between;
@@ -524,6 +526,8 @@ a { color: inherit; text-decoration: none; }
   .insight-date { display: none; }
 
   .cta { margin-top: 96px; padding: 88px var(--pad); }
+  .cta-title .cta-line:nth-child(2) { padding-left: 0.5em; }
+  .cta-title .cta-line:nth-child(3) { padding-left: 1em; }
   .cta-bottom { flex-direction: column; align-items: flex-start; gap: 32px; }
   .cta-info { text-align: left; }
 

@@ -144,7 +144,7 @@ const renderCta = (site, depth) => {
   return `
   <section class="cta" id="contact-cta">
     <span class="eyebrow reveal">${esc(c.eyebrow)}</span>
-    <h2 class="cta-title reveal">${esc(c.title)}</h2>
+    <h2 class="cta-title reveal">${c.title.split("\n").map((l) => `<span class="cta-line">${esc(l)}</span>`).join("")}</h2>
     <div class="cta-bottom reveal">
       <a class="btn-solid" href="${url(c.buttonHref, depth)}">${esc(c.buttonText)}</a>
       <div class="cta-info">
