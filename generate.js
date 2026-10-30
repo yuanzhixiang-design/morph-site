@@ -119,6 +119,31 @@ writePage(
   })
 );
 
+/* ---------------- sitemap.xml ---------------- */
+const SITE = "https://yzxform.com";
+const today = new Date().toISOString().slice(0, 10);
+const sitemapUrls = [
+  "",
+  "works/",
+  ...works.map((w) => `works/${w.code || w.slug}/`),
+  "insights/",
+  ...insights.map((a) => `insights/${a.code || a.slug}/`),
+  "method/",
+  "about/",
+  "contact/",
+];
+fs.writeFileSync(
+  path.join(OUT, "sitemap.xml"),
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+    sitemapUrls
+      .map(
+        (u) =>
+          `  <url><loc>${SITE}/${u}</loc><lastmod>${today}</lastmod></url>`
+      )
+      .join("\n") +
+    `\n</urlset>\n`
+);
+
 /* ---------------- 静态资源 ---------------- */
 fs.mkdirSync(path.join(OUT, "assets"), { recursive: true });
 fs.copyFileSync(P("src/styles.css"), path.join(OUT, "assets/styles.css"));

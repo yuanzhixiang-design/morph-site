@@ -174,7 +174,7 @@ const layout = ({ site, depth = 0, seo = {}, active = "", body = "", ogImage = "
 <meta property="og:image" content="${esc(og)}">
 <meta name="theme-color" content="#0A0A0A">
 <script>document.documentElement.classList.add('js');</script>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230A0A0A'/><text x='16' y='22' font-family='Helvetica' font-size='16' font-weight='bold' fill='%23F5F5F3' text-anchor='middle'>M</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230A0A0A'/><circle cx='16' cy='16' r='8.5' fill='none' stroke='%23F5F5F3' stroke-width='2.5'/><circle cx='16' cy='16' r='2.5' fill='%23F5F5F3'/></svg>">
 <link rel="stylesheet" href="${rootPrefix(depth)}assets/styles.css">
 </head>
 <body>
