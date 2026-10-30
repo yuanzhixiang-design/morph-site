@@ -51,10 +51,32 @@ export default {
       });
       const data = await tokenRes.json();
       if (data.access_token) {
-        // 令牌放在 # 后面（不会发给服务器），后台页面自己读取
-        return Response.redirect(
-          `${url.origin}/admin/#access_token=${data.access_token}`,
-          302
+        // Decap CMS（NetlifyAuthenticator）握手协议：
+        // 弹窗先发 "authorizing:github"，等主窗口回同样的消息后，
+        // 再发 "authorization:github:success:{json}"，随后自动关闭弹窗。
+        const token = data.access_token.replace(/[^A-Za-z0-9_]/g, "");
+        return new Response(
+          `<!doctype html><html><body><script>
+(function () {
+  var opener = window.opener || window.parent;
+  if (!opener) {
+    document.body.textContent = "请从网站后台页面发起登录，不要直接打开本页。";
+    return;
+  }
+  opener.postMessage("authorizing:github", "https://yzxform.com");
+  window.addEventListener("message", function (e) {
+    if (e.data === "authorizing:github") {
+      opener.postMessage(
+        "authorization:github:success:" +
+          JSON.stringify({ token: "${token}", provider: "github" }),
+        "https://yzxform.com"
+      );
+      setTimeout(function () { window.close(); }, 300);
+    }
+  });
+})();
+</script></body></html>`,
+          { headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" } }
         );
       }
       return new Response(
