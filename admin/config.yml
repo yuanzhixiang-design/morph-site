@@ -7,9 +7,9 @@
 
 backend:
   name: git-github
-  repo: YOUR_GITHUB_USERNAME/morph-site
+  repo: yuanzhixiang-design/morph-site
   branch: main
-  base_url: https://YOUR-OAUTH-PROXY.workers.dev
+  base_url: https://yzxform.com
 
 # 后台界面语言
 locale: zh_Hans
