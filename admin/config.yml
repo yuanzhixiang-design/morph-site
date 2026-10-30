@@ -6,7 +6,7 @@
 # ============================================================
 
 backend:
-  name: git-github
+  name: github
   repo: yuanzhixiang-design/morph-site
   branch: main
   base_url: https://yzxform.com
