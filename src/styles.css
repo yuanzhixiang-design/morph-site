@@ -981,8 +981,10 @@ a.contact-value:hover { opacity: .75; }
 }
 .map-frame {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 170%;
+  height: calc(100% + 170px);
+  margin-left: -35%;
+  margin-top: -90px;
   border: 0;
   filter: grayscale(1) invert(0.9) contrast(0.85) brightness(0.95);
 }
