@@ -414,7 +414,10 @@ const contactPage = (site, page, depth = 1) => {
             <label for="f-msg">想做什么产品</label>
             <textarea id="f-msg" name="需求描述" rows="4" placeholder="产品方向、大致时间、预算范围（有就写，没有也没关系）"></textarea>
           </div>
-          <button class="btn-solid" type="submit">发出咨询</button>
+          <button class="btn-solid btn-submit" type="submit">
+            <span>发出咨询</span>
+            <svg class="btn-arrow" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2 9h13M15 9l-4.5-4.5M15 9l-4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+          </button>
           <p class="form-note">${esc(page.form.note)}</p>
         </form>
       </div>

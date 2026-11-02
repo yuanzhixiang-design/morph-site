@@ -986,6 +986,28 @@ a.contact-value:hover { opacity: .75; }
 .field input::placeholder, .field textarea::placeholder { color: var(--ink-4); }
 .field input:focus, .field textarea:focus { border-bottom-color: var(--ink); }
 .contact-form .btn-solid { align-self: flex-start; margin-top: 8px; cursor: pointer; border: 0; font-family: var(--font-cn); }
+/* 主提交按钮：高对比 + 箭头引导，靠“稳”而不是“闪”来吸引点击 */
+.btn-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 46px;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: #0A0A0A;
+  background: #F5F5F3;
+  transition: background .3s ease, transform .3s ease, box-shadow .3s ease;
+}
+.btn-submit .btn-arrow { transition: transform .3s cubic-bezier(.2, .8, .2, 1); }
+.btn-submit:hover {
+  background: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .45);
+}
+.btn-submit:hover .btn-arrow { transform: translateX(6px); }
+.btn-submit:active { transform: translateY(0); }
+.btn-submit:focus-visible { outline: 2px solid #F5F5F3; outline-offset: 3px; }
 .form-note { margin: 0; font-size: 11px; line-height: 1.9; color: var(--ink-4); }
 
 .map-band {
@@ -1085,6 +1107,13 @@ a.contact-value:hover { opacity: .75; }
   .page-title { margin-top: 32px; line-height: 1.18; }
   .page-lead { margin-top: 28px; font-size: 15px; line-height: 2; }
   .page-hero--center { padding-bottom: 96px; }
+  .contact-form .btn-submit {
+    align-self: stretch;
+    justify-content: center;
+    padding: 20px 28px;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+  }
 
   .section--tight { padding-top: 64px; }
 
