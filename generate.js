@@ -148,6 +148,7 @@ fs.writeFileSync(
 fs.mkdirSync(path.join(OUT, "assets"), { recursive: true });
 fs.copyFileSync(P("src/styles.css"), path.join(OUT, "assets/styles.css"));
 copyDir(P("src/assets/images"), path.join(OUT, "assets/images"));
+if (fs.existsSync(P("src/assets/vendor"))) copyDir(P("src/assets/vendor"), path.join(OUT, "assets/vendor"));
 if (fs.existsSync(P("admin"))) copyDir(P("admin"), path.join(OUT, "admin"));
 
 /* ---------------- 报告 ---------------- */

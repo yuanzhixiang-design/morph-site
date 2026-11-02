@@ -43,7 +43,10 @@
     "hours": "周一至周五 10:00—19:00，来访请提前预约"
   },
   "map": {
-    "embed": "https://ditu.amap.com/regeo?lng=114.0638&lat=22.6060&name=%E6%98%9F%E6%B2%B3WORLD-F%E5%BA%A7&src=yzxform&callnative=0&innersrc=uriapi",
+    "lng": 114.0638,
+    "lat": 22.606,
+    "zoom": 16,
+    "name": "星河WORLD-F座",
     "link": "https://uri.amap.com/marker?position=114.0638,22.6060&name=%E6%98%9F%E6%B2%B3WORLD-F%E5%BA%A7&src=yzxform&callnative=0",
     "linkText": "在高德地图中打开导航"
   }

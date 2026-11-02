@@ -980,14 +980,48 @@ a.contact-value:hover { opacity: .75; }
   overflow: hidden;
 }
 .map-frame {
-  display: block;
-  width: 170%;
-  height: calc(100% + 170px);
-  margin-left: -35%;
-  margin-top: -90px;
-  border: 0;
-  filter: grayscale(1) invert(0.9) contrast(0.85) brightness(0.95);
+  position: absolute;
+  inset: 0;
+  background: #e8e8e6;
+  filter: grayscale(1) contrast(0.95) brightness(1.02);
 }
+/* 黑白标记：白底圆环 + 深色圆心，与品牌圆环呼应 */
+.map-pin { position: relative; }
+.map-pin-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 26px;
+  height: 26px;
+  margin: -13px 0 0 -13px;
+  border: 2px solid #141414;
+  border-radius: 50%;
+  background: rgba(245, 245, 243, 0.92);
+  box-shadow: 0 0 0 5px rgba(245, 245, 243, 0.4);
+}
+.map-pin-dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  border-radius: 50%;
+  background: #141414;
+}
+/* 缩放按钮跟随黑白风格 */
+.leaflet-control-zoom { border: 0 !important; box-shadow: none !important; }
+.leaflet-control-zoom a {
+  width: 34px !important;
+  height: 34px !important;
+  line-height: 32px !important;
+  background: #141414 !important;
+  color: #f5f5f3 !important;
+  border: 1px solid #3a3a38 !important;
+  border-radius: 0 !important;
+  font-weight: 400 !important;
+}
+.leaflet-control-zoom a:hover { background: #2a2a28 !important; }
 .map-card {
   position: absolute;
   left: var(--pad);

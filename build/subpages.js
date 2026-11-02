@@ -1,5 +1,5 @@
 /** 二级页面渲染：作品列表 / 作品详情 / 洞察列表 / 洞察详情 / 方法 / 关于 / 联系 */
-const { esc, url, asset, arrow, md, layout, renderCta } = require("./helpers");
+const { esc, url, asset, arrow, md, layout, renderCta, rootPrefix } = require("./helpers");
 
 /* ---------- 通用：页面头 ---------- */
 const pageHero = (h, extra = "") => `
@@ -414,8 +414,8 @@ const contactPage = (site, page, depth = 1) => {
   </section>
   <section class="map-band reveal">
     ${
-      page.map && page.map.embed
-        ? `<iframe class="map-frame" src="${esc(page.map.embed)}" loading="lazy" title="工作室位置地图" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>`
+      page.map && page.map.lng
+        ? `<div id="studio-map" class="map-frame" role="img" aria-label="工作室位置地图"></div>`
         : `<div class="map-inner">
       <span class="eyebrow">STUDIO</span>
       <p class="map-text">${esc(page.studio ? page.studio.address : site.cta.address)}</p>
@@ -423,7 +423,7 @@ const contactPage = (site, page, depth = 1) => {
     </div>`
     }
     ${
-      page.map && page.map.embed
+      page.map && page.map.lng
         ? `<div class="map-card">
       <span class="eyebrow">STUDIO</span>
       <p class="map-text">${esc(page.studio ? page.studio.address : site.cta.address)}</p>
@@ -431,7 +431,39 @@ const contactPage = (site, page, depth = 1) => {
     </div>`
         : ""
     }
-  </section>`;
+  </section>
+  ${
+    page.map && page.map.lng
+      ? `<link rel="stylesheet" href="${rootPrefix(depth)}assets/vendor/leaflet.css">
+<script src="${rootPrefix(depth)}assets/vendor/leaflet.js"></script>
+<script>
+(function () {
+  var el = document.getElementById("studio-map");
+  if (!el || typeof L === "undefined") return;
+  var center = [${page.map.lat}, ${page.map.lng}];
+  var map = L.map(el, {
+    center: center,
+    zoom: ${page.map.zoom || 16},
+    zoomControl: true,
+    attributionControl: false,
+    scrollWheelZoom: false,
+    doubleClickZoom: true
+  });
+  L.tileLayer("https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}", {
+    subdomains: "1234",
+    maxZoom: 18
+  }).addTo(map);
+  var pin = L.divIcon({
+    className: "map-pin",
+    html: "<span class=\\"map-pin-ring\\"></span><span class=\\"map-pin-dot\\"></span>",
+    iconSize: [30, 30],
+    iconAnchor: [15, 15]
+  });
+  L.marker(center, { icon: pin, interactive: false, keyboard: false }).addTo(map);
+})();
+</script>`
+      : ""
+  }`;
   return layout({ site, depth, seo: page.seo, active: "/contact/", body });
 };
 

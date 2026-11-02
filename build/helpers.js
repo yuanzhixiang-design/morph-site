@@ -216,4 +216,4 @@ document.querySelectorAll('.reveal').forEach((el, i) => {
 </html>`;
 };
 
-module.exports = { esc, url, asset, arrow, md, layout, renderCta, renderNav, renderFooter };
+module.exports = { esc, url, asset, arrow, md, layout, renderCta, renderNav, renderFooter, rootPrefix };
