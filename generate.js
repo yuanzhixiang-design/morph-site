@@ -101,6 +101,7 @@ for (const p of insights) {
 writePage("method/index.html", sub.methodPage(site, pages.method, 1));
 writePage("about/index.html", sub.aboutPage(site, pages.about, 1));
 writePage("contact/index.html", sub.contactPage(site, pages.contact, 1));
+writePage("contact/thanks/index.html", sub.contactThanks(site, 2));
 
 /* ---------------- 404 ---------------- */
 writePage(

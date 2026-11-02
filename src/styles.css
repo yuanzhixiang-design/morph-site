@@ -580,7 +580,23 @@ a { color: inherit; text-decoration: none; }
 }
 .page-hero--center { text-align: center; padding-bottom: 160px; }
 .page-hero--center .page-lead { margin-left: auto; margin-right: auto; }
-.hero-actions { margin: 56px 0 0; }
+.hero-actions {
+  margin: 56px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+}
+/* 防机器人隐藏字段（真实访客看不到） */
+.field-honey {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
 
 .section--tight { padding-top: 96px; }
 

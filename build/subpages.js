@@ -394,9 +394,17 @@ const contactPage = (site, page, depth = 1) => {
         <span class="eyebrow">${esc(page.form.eyebrow)}</span>
         <h2 class="contact-form-title">${esc(page.form.title)}</h2>
         <form class="contact-form" action="${esc(page.form.action)}" method="POST">
+          <input type="hidden" name="_subject" value="${esc(page.form.subject || "官网新咨询 · " + site.brand.nameCn)}">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://yzxform.com/contact/thanks/">
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="field-honey">
           <div class="field">
             <label for="f-name">怎么称呼</label>
-            <input id="f-name" name="称呼" type="text" placeholder="你的名字 / 公司" required>
+            <input id="f-name" name="称呼" type="text" placeholder="你的名字" required>
+          </div>
+          <div class="field">
+            <label for="f-company">公司 / 品牌</label>
+            <input id="f-company" name="公司" type="text" placeholder="公司或品牌名称（可留空）">
           </div>
           <div class="field">
             <label for="f-contact">联系方式</label>
@@ -467,4 +475,25 @@ const contactPage = (site, page, depth = 1) => {
   return layout({ site, depth, seo: page.seo, active: "/contact/", body });
 };
 
-module.exports = { worksIndex, workDetail, insightsIndex, insightDetail, methodPage, aboutPage, contactPage };
+/* ---------- 联系表单提交成功页 ---------- */
+const contactThanks = (site, depth = 1) => {
+  const body = `
+  <section class="page-hero page-hero--center">
+    <span class="eyebrow reveal">MESSAGE SENT</span>
+    <h1 class="page-title reveal">收到了。</h1>
+    <p class="page-lead reveal">我们会在 48 小时内回你。急事的话，直接打电话 ${esc(site.cta.phone)}，或者加企业微信（回到联系页可扫码）。</p>
+    <p class="hero-actions reveal">
+      <a class="btn-solid" href="${url("/works/", depth)}">先看看我们做过什么</a>
+      <a class="arrow-link" href="${url("/", depth)}">回到首页 ${arrow()}</a>
+    </p>
+  </section>`;
+  return layout({
+    site,
+    depth,
+    seo: { title: "已收到 — " + site.brand.nameEn, description: "", noindex: true },
+    active: "/contact/",
+    body,
+  });
+};
+
+module.exports = { worksIndex, workDetail, insightsIndex, insightDetail, methodPage, aboutPage, contactPage, contactThanks };

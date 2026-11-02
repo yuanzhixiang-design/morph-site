@@ -172,7 +172,7 @@ const layout = ({ site, depth = 0, seo = {}, active = "", body = "", ogImage = "
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
-<meta property="og:title" content="${esc(title)}">
+${seo.noindex ? `<meta name="robots" content="noindex, follow">\n` : ""}<meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:type" content="website">
 <meta property="og:image" content="${esc(og)}">
